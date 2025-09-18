@@ -15,12 +15,7 @@ The course will introduce the Azure platform, its organization, and the main ser
 
 ## Table of Contents:
 
-- [`Core Infrastructure Services`](https://github.com/tonytech83/lsaa/tree/main/01-local-storage-and-additional-techniques)
-- [`System and Network Security`](https://github.com/tonytech83/lsaa/tree/main/02-system-and-network-security)
-- [`Shared and Distributed Storage`](https://github.com/tonytech83/lsaa/tree/main/03-shared-and-distributed-storage)
-- [`Network Services`](https://github.com/tonytech83/lsaa/tree/main/04-network-services)
-- [`Virtualization and Containerization`](https://github.com/tonytech83/lsaa/tree/main/05-virtualization-and-containerization)
-- [`Clustering and High Availability`](https://github.com/tonytech83/lsaa/tree/main/06-clustering-and-high-availability)
+- [`Core Infrastructure Services`](https://github.com/tonytech83/azure-essentials/tree/main/01-core-infrastructure-services)
 
 <br/>
 <br/>
