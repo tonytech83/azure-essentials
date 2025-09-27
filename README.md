@@ -12,6 +12,7 @@ The course will introduce the Azure platform, its organization, and the main ser
 
 - `Bash`
 - `Azure CLI`
+- `Terraform`
 
 ## Table of Contents:
 
