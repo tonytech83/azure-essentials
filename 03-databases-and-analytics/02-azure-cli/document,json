@@ -1,0 +1,8 @@
+{ "id": 1, "name": "Mimi", "sex": "F", "salary": 5000 }
+{ "id": 2, "name": "Bobi", "sex": "M", "salary": 4200 }
+{ "id": 3, "name": "Svetla", "sex": "F", "salary": 6000 }
+{ "id": 4, "name": "Dancho", "sex": "M", "salary": 3900 }
+{ "id": 5, "name": "Ralica", "sex": "F", "salary": 5500 }
+{ "id": 6, "name": "Ivan", "sex": "M", "salary": 12500 }
+{ "id": 7, "name": "Penka", "sex": "F", "salary": 10500 }
+{ "id": 8, "name": "Ceco", "sex": "M", "salary": 3200 }
