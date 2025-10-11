@@ -4,6 +4,7 @@
 
 - Create new **Resource group** with name `hw-m4-rg`
 - Create **Azure SQL** resource -> **Azure SQL Database** -> Show options -> Create SQL logical server
+
   **Basics**
 
   - **Server name** - `hw-m4-db-server`
@@ -19,6 +20,7 @@
   - **Review + create** -> **Create**
 
 - Open **Azure SQL server** resource -> Create database
+
   **Basics**
 
   - **Database name** - `hw-m4-db`
@@ -75,6 +77,7 @@ hw-m4-image                     latest    773898cf48dd   About a minute ago   76
 #### 4. Create a container registry and publish your application container image there
 
 - Inside out **Resource group** search and create **Container registry**
+
   **Basics**
 
   - **Registry name** - `hwm4cr`
@@ -138,6 +141,7 @@ v1: digest: sha256:773898cf48dd85990a6d90dfe33bb2d159caeb6d6b874583bf7e0ce4f0508
 #### 5. Create a container instance out of the published image and see if the application is working as expected
 
 - Create new resource **Container Instances**
+
   **Basics**
 
   - **Container name** - `hw-m4-container`
