@@ -59,7 +59,7 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
 
 ```dockerfile
 FROM shekeriev/php:8.3-apache-sql
-COPY ../app/ /var/www/html/
+COPY . /var/www/html/
 ```
 
 - Create image from Dockerfile
