@@ -11,9 +11,9 @@
         <div class="container">
 <?php
 	// CONNECTION INFORMATION BELLOW
-    $connectionInfo = array("UID" => "azadmin", "pwd" => "New_123123", "Database" => "hw-m4-db", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
-    $serverName = "tcp:hw-m4-db-server.database.windows.net,1433";
-    $conn = sqlsrv_connect($serverName, $connectionInfo);
+    $connectionOptions = array("UID" => "sqladminuser", "PWD" => "New_123123", "Database" => "hw-m4-db", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0); 
+    $serverName = "tcp:hw-m4-db-srv.database.windows.net,1433"; 
+    $conn = sqlsrv_connect($serverName, $connectionOptions);
 
     if ($conn) {
         $cityid = random_int(1, 10);
