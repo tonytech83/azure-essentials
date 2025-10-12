@@ -16,7 +16,7 @@ For this homework challenge you are expected to do the following:
 3.  Create a container image out of the application that is included in
     the **app/** folder in the supporting files
 
-*For base image use **shekeriev/php:8.3-apache-sql***
+\*For base image use **shekeriev/php:8.3-apache-sql\***
 
 4.  Create a container registry and publish your application container
     image there
@@ -37,3 +37,11 @@ It can include (not limited to):
 2.  Any configuration files produced while solving the tasks
 
 3.  A few pictures showing intermediary steps or results
+
+## Solution
+
+1. [Azure Portal](./01-portal/portal.md)
+
+2. [Azure CLI](./02-azure-cli/azure-cli.md)
+
+3. [Terraform](./03-terraform/terraform.md)
