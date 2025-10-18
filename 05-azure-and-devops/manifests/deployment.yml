@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: hwm5namespace
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hw-m5-web-app
+  namespace: hwm5namespace
+  labels:
+    app: hw
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: hw
+  template:
+    metadata:
+      labels:
+        app: hw
+    spec:
+      containers:
+        - name: app
+          image: hwm5cr.azurecr.io/simple-web-app:v1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hw-m5-svc
+  namespace: hwm5namespace
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 8080
+      name: app-port
+  selector:
+    app: hw
