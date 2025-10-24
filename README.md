@@ -17,6 +17,10 @@ The course will introduce the Azure platform, its organization, and the main ser
 ## Table of Contents:
 
 - [`Core Infrastructure Services`](https://github.com/tonytech83/azure-essentials/tree/main/01-core-infrastructure-services)
+- [`Advanced Infrastructure Services`](https://github.com/tonytech83/azure-essentials/tree/main/02-advanced-infrastructure-services)
+- [`Databases and Analytics`](https://github.com/tonytech83/azure-essentials/tree/main/03-databases-and-analytics)
+- [`Azure for Developers`](https://github.com/tonytech83/azure-essentials/tree/main/04-azure-for-developers)
+- [`Azure and DevOps`](https://github.com/tonytech83/azure-essentials/tree/main/05-azure-and-devops)
 
 <br/>
 <br/>
