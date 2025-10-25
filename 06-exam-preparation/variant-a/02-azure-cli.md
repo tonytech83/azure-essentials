@@ -284,7 +284,6 @@ az vm create \
 
 ```sh
 az network nic list --resource-group RG-Solution -o table
-
 ```
 
 - Attach Both VMs to Load Balancer Backend Pool (`LBP-BEP`)
@@ -465,3 +464,124 @@ sudo mv *.php /var/www/html
 - Have a fully working VM-based web application
 
 ![pic-5](../media/va-pic-5.png)
+
+- Create a **Container registry** with **Basic** SKU and enable the Admin user
+
+```sh
+az acr create \
+--resource-group RG-Solution \
+--name examprepcr \
+--sku Basic \
+--admin-enabled true \
+--public-network-enabled true
+```
+
+- Login to just created **Container registry**
+
+```sh
+az acr login --name examprepcr
+```
+
+- Add SQL connection string to the `docker/web/config.php` file
+
+- Build Docker image from **Dockerfile** inside **docker** folder
+
+```sh
+docker build . -t php-app
+```
+
+- Tag the Docker image for the **Azure Container registry**
+
+```sh
+docker tag php-app examprepcr.azurecr.io/php-app:v1
+```
+
+- Push image to remote registry
+
+```sh
+docker push examprepcr.azurecr.io/php-app:v1
+```
+
+- Take Azure Container registry password
+
+```sh
+export ACR_PASSWORD="$(az acr credential show --name examprepcr --query 'passwords[0].value' -o tsv | tr -d '\r\n')"
+```
+
+- Create container from our image `examprepcr.azurecr.io/php-app:v1`
+
+```sh
+az container create \
+--resource-group RG-Solution \
+--name exam-container \
+--image examprepcr.azurecr.io/php-app:v1 \
+--dns-name-label exam-php-app \
+--ports 80 \
+--os-type linux \
+--cpu 1 \
+--memory 1.5 \
+--location northeurope \
+--registry-login-server examprepcr.azurecr.io \
+--registry-username examprepcr \
+--registry-password "$ACR_PASSWORD"
+```
+
+- Take FQDN of our container
+
+```sh
+az container show -g RG-Solution -n exam-container --query "{FQDN:ipAddress.fqdn}"
+{
+  "FQDN": "exam-php-app.northeurope.azurecontainer.io"
+}
+```
+
+![pic-6](../media/va-pic-6.png)
+
+- Create **App Service plan**
+
+```sh
+az appservice plan create \
+--name asp-exam \
+--resource-group RG-Solution \
+--location northeurope \
+--sku B1 \
+--is-linux
+```
+
+- Create **Web App**
+
+```sh
+az webapp create \
+--resource-group RG-Solution \
+--plan asp-exam \
+--name examprep-php-web-app \
+--runtime "PHP|8.3" \
+--basic-auth Enabled
+```
+
+- Take SFTP settings for connection
+
+```sh
+az webapp deployment list-publishing-profiles \
+--name examprep-php-web-app \
+--resource-group RG-Solution \
+--query "[?publishMethod=='FTP'].[publishUrl,userName,userPWD]" \
+--output tsv
+```
+
+- Add the SQL connection string to the `webapp\index.php` file
+
+- Deploy the files inside `webapp` with SFTP client to **Web App server**
+
+- Make sure that the web app is working and showing correct results
+
+![pic-7](../media/va-pic-7.png)
+
+- Delete Resource group
+
+```sh
+az group delete \
+--name RG-Solution \
+--yes \
+--no-wait
+```
