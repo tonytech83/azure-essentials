@@ -16,8 +16,8 @@ spec:
         app: examapp
     spec:
       containers:
-      - name: examapp
-        image: <<< YOU IMAGE HERE >>>
-        ports:
-        - containerPort: 80
-          name: examapp
+        - name: examapp
+          image: examprepcr.azurecr.io/php-app:v1
+          ports:
+            - containerPort: 80
+              name: examapp
