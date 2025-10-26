@@ -1,0 +1,1702 @@
+ az network nsg create \
+--resource-group RG-SolutionA \
+--name SG-VM
+{
+  "NewNSG": {
+    "defaultSecurityRules": [
+      {
+        "access": "Allow",
+        "description": "Allow inbound traffic from all VMs in VNET",
+        "destinationAddressPrefix": "VirtualNetwork",
+        "destinationAddressPrefixes": [],
+        "destinationPortRange": "*",
+        "destinationPortRanges": [],
+        "direction": "Inbound",
+        "etag": "W/\"dd2dd91c-c3d3-4839-a6b6-8c27f81e5124\"",
+        "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/networkSecurityGroups/SG-VM/defaultSecurityRules/AllowVnetInBound",
+        "name": "AllowVnetInBound",
+        "priority": 65000,
+        "protocol": "*",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "RG-SolutionA",
+        "sourceAddressPrefix": "VirtualNetwork",
+        "sourceAddressPrefixes": [],
+        "sourcePortRange": "*",
+        "sourcePortRanges": [],
+        "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules"
+      },
+      {
+        "access": "Allow",
+        "description": "Allow inbound traffic from azure load balancer",
+        "destinationAddressPrefix": "*",
+        "destinationAddressPrefixes": [],
+        "destinationPortRange": "*",
+        "destinationPortRanges": [],
+        "direction": "Inbound",
+        "etag": "W/\"dd2dd91c-c3d3-4839-a6b6-8c27f81e5124\"",
+        "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/networkSecurityGroups/SG-VM/defaultSecurityRules/AllowAzureLoadBalancerInBound",
+        "name": "AllowAzureLoadBalancerInBound",
+        "priority": 65001,
+        "protocol": "*",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "RG-SolutionA",
+        "sourceAddressPrefix": "AzureLoadBalancer",
+        "sourceAddressPrefixes": [],
+        "sourcePortRange": "*",
+        "sourcePortRanges": [],
+        "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules"
+      },
+      {
+        "access": "Deny",
+        "description": "Deny all inbound traffic",
+        "destinationAddressPrefix": "*",
+        "destinationAddressPrefixes": [],
+        "destinationPortRange": "*",
+        "destinationPortRanges": [],
+        "direction": "Inbound",
+        "etag": "W/\"dd2dd91c-c3d3-4839-a6b6-8c27f81e5124\"",
+        "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/networkSecurityGroups/SG-VM/defaultSecurityRules/DenyAllInBound",
+        "name": "DenyAllInBound",
+        "priority": 65500,
+        "protocol": "*",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "RG-SolutionA",
+        "sourceAddressPrefix": "*",
+        "sourceAddressPrefixes": [],
+        "sourcePortRange": "*",
+        "sourcePortRanges": [],
+        "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules"
+      },
+      {
+        "access": "Allow",
+        "description": "Allow outbound traffic from all VMs to all VMs in VNET",
+        "destinationAddressPrefix": "VirtualNetwork",
+        "destinationAddressPrefixes": [],
+        "destinationPortRange": "*",
+        "destinationPortRanges": [],
+        "direction": "Outbound",
+        "etag": "W/\"dd2dd91c-c3d3-4839-a6b6-8c27f81e5124\"",
+        "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/networkSecurityGroups/SG-VM/defaultSecurityRules/AllowVnetOutBound",
+        "name": "AllowVnetOutBound",
+        "priority": 65000,
+        "protocol": "*",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "RG-SolutionA",
+        "sourceAddressPrefix": "VirtualNetwork",
+        "sourceAddressPrefixes": [],
+        "sourcePortRange": "*",
+        "sourcePortRanges": [],
+        "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules"
+      },
+      {
+        "access": "Allow",
+        "description": "Allow outbound traffic from all VMs to Internet",
+        "destinationAddressPrefix": "Internet",
+        "destinationAddressPrefixes": [],
+        "destinationPortRange": "*",
+        "destinationPortRanges": [],
+        "direction": "Outbound",
+        "etag": "W/\"dd2dd91c-c3d3-4839-a6b6-8c27f81e5124\"",
+        "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/networkSecurityGroups/SG-VM/defaultSecurityRules/AllowInternetOutBound",
+        "name": "AllowInternetOutBound",
+        "priority": 65001,
+        "protocol": "*",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "RG-SolutionA",
+        "sourceAddressPrefix": "*",
+        "sourceAddressPrefixes": [],
+        "sourcePortRange": "*",
+        "sourcePortRanges": [],
+        "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules"
+      },
+      {
+        "access": "Deny",
+        "description": "Deny all outbound traffic",
+        "destinationAddressPrefix": "*",
+        "destinationAddressPrefixes": [],
+        "destinationPortRange": "*",
+        "destinationPortRanges": [],
+        "direction": "Outbound",
+        "etag": "W/\"dd2dd91c-c3d3-4839-a6b6-8c27f81e5124\"",
+        "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/networkSecurityGroups/SG-VM/defaultSecurityRules/DenyAllOutBound",
+        "name": "DenyAllOutBound",
+        "priority": 65500,
+        "protocol": "*",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "RG-SolutionA",
+        "sourceAddressPrefix": "*",
+        "sourceAddressPrefixes": [],
+        "sourcePortRange": "*",
+        "sourcePortRanges": [],
+        "type": "Microsoft.Network/networkSecurityGroups/defaultSecurityRules"
+      }
+    ],
+    "etag": "W/\"dd2dd91c-c3d3-4839-a6b6-8c27f81e5124\"",
+    "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/networkSecurityGroups/SG-VM",
+    "location": "northeurope",
+    "name": "SG-VM",
+    "provisioningState": "Succeeded",
+    "resourceGroup": "RG-SolutionA",
+    "resourceGuid": "be563640-a16a-4c36-98a1-6fb293d9be3b",
+    "securityRules": [],
+    "type": "Microsoft.Network/networkSecurityGroups"
+  }
+}
+ az network nsg rule create \
+--resource-group RG-SolutionA \
+--nsg-name SG-VM \
+--name Rule-SSH \
+--priority 100 \
+--direction Inbound \
+--access Allow \
+--protocol Tcp \
+--destination-port-ranges 22
+{
+  "access": "Allow",
+  "destinationAddressPrefix": "*",
+  "destinationAddressPrefixes": [],
+  "destinationPortRange": "22",
+  "destinationPortRanges": [],
+  "direction": "Inbound",
+  "etag": "W/\"fb6712e0-8578-457a-a0c6-f03dc12a2fbc\"",
+  "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/networkSecurityGroups/SG-VM/securityRules/Rule-SSH",
+  "name": "Rule-SSH",
+  "priority": 100,
+  "protocol": "Tcp",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "RG-SolutionA",
+  "sourceAddressPrefix": "*",
+  "sourceAddressPrefixes": [],
+  "sourcePortRange": "*",
+  "sourcePortRanges": [],
+  "type": "Microsoft.Network/networkSecurityGroups/securityRules"
+}
+ az network nsg rule create \
+--resource-group RG-SolutionA \
+--nsg-name SG-VM \
+--name Rule-HTTP \
+--priority 101 \
+--direction Inbound \
+--access Allow \
+--protocol Tcp \
+--destination-port-ranges 80
+{
+  "access": "Allow",
+  "destinationAddressPrefix": "*",
+  "destinationAddressPrefixes": [],
+  "destinationPortRange": "80",
+  "destinationPortRanges": [],
+  "direction": "Inbound",
+  "etag": "W/\"c329a44d-5320-470d-8f85-40cae9b2d9b0\"",
+  "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/networkSecurityGroups/SG-VM/securityRules/Rule-HTTP",
+  "name": "Rule-HTTP",
+  "priority": 101,
+  "protocol": "Tcp",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "RG-SolutionA",
+  "sourceAddressPrefix": "*",
+  "sourceAddressPrefixes": [],
+  "sourcePortRange": "*",
+  "sourcePortRanges": [],
+  "type": "Microsoft.Network/networkSecurityGroups/securityRules"
+}
+ az network vnet create \
+--resource-group RG-SolutionA \
+--name NET \
+--address-prefix 10.0.0.0/16 \
+--subnet-name NET-SUB-VM \
+--subnet-prefix 10.0.1.0/24 \
+--network-security-group SG-VM
+{
+  "newVNet": {
+    "addressSpace": {
+      "addressPrefixes": [
+        "10.0.0.0/16"
+      ]
+    },
+    "enableDdosProtection": false,
+    "etag": "W/\"8f700009-3d41-41eb-a1c1-02674c757a2f\"",
+    "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/virtualNetworks/NET",
+    "location": "northeurope",
+    "name": "NET",
+    "privateEndpointVNetPolicies": "Disabled",
+    "provisioningState": "Succeeded",
+    "resourceGroup": "RG-SolutionA",
+    "resourceGuid": "980c807c-f362-48e7-97ee-3b6d2c917ac1",
+    "subnets": [
+      {
+        "addressPrefix": "10.0.1.0/24",
+        "delegations": [],
+        "etag": "W/\"8f700009-3d41-41eb-a1c1-02674c757a2f\"",
+        "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/virtualNetworks/NET/subnets/NET-SUB-VM",
+        "name": "NET-SUB-VM",
+        "networkSecurityGroup": {
+          "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/networkSecurityGroups/SG-VM",
+          "resourceGroup": "RG-SolutionA"
+        },
+        "privateEndpointNetworkPolicies": "Disabled",
+        "privateLinkServiceNetworkPolicies": "Enabled",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "RG-SolutionA",
+        "type": "Microsoft.Network/virtualNetworks/subnets"
+      }
+    ],
+    "type": "Microsoft.Network/virtualNetworks",
+    "virtualNetworkPeerings": []
+  }
+}
+ az network public-ip create \
+--resource-group RG-SolutionA \
+--name LBP-IP \
+--sku Standard \
+--allocation-method static
+[Coming breaking change] In the coming release, the default behavior will be changed as follows when sku is Standard and zone is not provided: For zonal regions, you will get a zone-redundant IP indicated by zones:["1","2","3"]; For non-zonal regions, you will get a non zone-redundant IP indicated by zones:null.
+{
+  "publicIp": {
+    "ddosSettings": {
+      "protectionMode": "VirtualNetworkInherited"
+    },
+    "etag": "W/\"4f253025-0d3a-4849-8ba8-7eb71f1d6ee7\"",
+    "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/publicIPAddresses/LBP-IP",
+    "idleTimeoutInMinutes": 4,
+    "ipAddress": "74.234.105.51",
+    "ipTags": [],
+    "location": "northeurope",
+    "name": "LBP-IP",
+    "provisioningState": "Succeeded",
+    "publicIPAddressVersion": "IPv4",
+    "publicIPAllocationMethod": "Static",
+    "resourceGroup": "RG-SolutionA",
+    "resourceGuid": "6e6fd7d8-b83b-4835-937c-e38e01796f46",
+    "sku": {
+      "name": "Standard",
+      "tier": "Regional"
+    },
+    "type": "Microsoft.Network/publicIPAddresses"
+  }
+}
+ az network lb create \
+--resource-group RG-SolutionA \
+--name LBP \
+--sku Standard \
+--public-ip-address LBP-IP \
+--frontend-ip-name LBP-FE \
+--backend-pool-name LBP-BEP
+{
+  "loadBalancer": {
+    "backendAddressPools": [
+      {
+        "etag": "W/\"b560ecaa-8bb3-4de9-bade-1a2af533ecc0\"",
+        "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/loadBalancers/LBP/backendAddressPools/LBP-BEP",
+        "name": "LBP-BEP",
+        "properties": {
+          "loadBalancerBackendAddresses": [],
+          "provisioningState": "Succeeded"
+        },
+        "resourceGroup": "RG-SolutionA",
+        "type": "Microsoft.Network/loadBalancers/backendAddressPools"
+      }
+    ],
+    "frontendIPConfigurations": [
+      {
+        "etag": "W/\"b560ecaa-8bb3-4de9-bade-1a2af533ecc0\"",
+        "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/loadBalancers/LBP/frontendIPConfigurations/LBP-FE",
+        "name": "LBP-FE",
+        "properties": {
+          "privateIPAllocationMethod": "Dynamic",
+          "provisioningState": "Succeeded",
+          "publicIPAddress": {
+            "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/publicIPAddresses/LBP-IP",
+            "resourceGroup": "RG-SolutionA"
+          }
+        },
+        "resourceGroup": "RG-SolutionA",
+        "type": "Microsoft.Network/loadBalancers/frontendIPConfigurations"
+      }
+    ],
+    "inboundNatPools": [],
+    "inboundNatRules": [],
+    "loadBalancingRules": [],
+    "outboundRules": [],
+    "probes": [],
+    "provisioningState": "Succeeded",
+    "resourceGuid": "532796a4-58dd-4a41-81a3-bc1dc586cf12"
+  }
+}
+ az network lb probe create \
+--resource-group RG-SolutionA \
+--lb-name LBP \
+--name LBP-HP \
+--protocol Tcp \
+--port 80
+{
+  "etag": "W/\"50b51c8c-676b-4191-b73b-22ec42eb87eb\"",
+  "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/loadBalancers/LBP/probes/LBP-HP",
+  "intervalInSeconds": 15,
+  "name": "LBP-HP",
+  "numberOfProbes": 2,
+  "port": 80,
+  "probeThreshold": 1,
+  "protocol": "Tcp",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "RG-SolutionA",
+  "type": "Microsoft.Network/loadBalancers/probes"
+}
+ az network lb rule create \
+--resource-group RG-SolutionA \
+--lb-name LBP \
+--name LBP-RULE \
+--protocol Tcp \
+--frontend-port 80 \
+--backend-port 80 \
+--frontend-ip-name LBP-FE \
+--backend-pool-name LBP-BEP \
+--probe-name LBP-HP \
+--disable-outbound-snat true
+{
+  "backendAddressPool": {
+    "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/loadBalancers/LBP/backendAddressPools/LBP-BEP",
+    "resourceGroup": "RG-SolutionA"
+  },
+  "backendAddressPools": [
+    {
+      "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/loadBalancers/LBP/backendAddressPools/LBP-BEP",
+      "resourceGroup": "RG-SolutionA"
+    }
+  ],
+  "backendPort": 80,
+  "disableOutboundSnat": true,
+  "enableFloatingIP": false,
+  "enableTcpReset": false,
+  "etag": "W/\"02d80a5e-9d2d-4819-bc92-b11b10d1447f\"",
+  "frontendIPConfiguration": {
+    "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/loadBalancers/LBP/frontendIPConfigurations/LBP-FE",
+    "resourceGroup": "RG-SolutionA"
+  },
+  "frontendPort": 80,
+  "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/loadBalancers/LBP/loadBalancingRules/LBP-RULE",
+  "idleTimeoutInMinutes": 4,
+  "loadDistribution": "Default",
+  "name": "LBP-RULE",
+  "probe": {
+    "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/loadBalancers/LBP/probes/LBP-HP",
+    "resourceGroup": "RG-SolutionA"
+  },
+  "protocol": "Tcp",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "RG-SolutionA",
+  "type": "Microsoft.Network/loadBalancers/loadBalancingRules"
+}
+ az network lb inbound-nat-rule create \
+--resource-group RG-SolutionA \
+--lb-name LBP \
+--name LBP-NAT-SSH-1 \
+--protocol Tcp \
+--frontend-port 10122 \
+--backend-port 22 \
+--frontend-ip-name LBP-FE
+{
+  "backendPort": 22,
+  "enableFloatingIP": false,
+  "enableTcpReset": false,
+  "etag": "W/\"4014de9d-b9e2-4d6b-8b53-3714fadb56a3\"",
+  "frontendIPConfiguration": {
+    "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/loadBalancers/LBP/frontendIPConfigurations/LBP-FE",
+    "resourceGroup": "RG-SolutionA"
+  },
+  "frontendPort": 10122,
+  "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/loadBalancers/LBP/inboundNatRules/LBP-NAT-SSH-1",
+  "idleTimeoutInMinutes": 4,
+  "name": "LBP-NAT-SSH-1",
+  "protocol": "Tcp",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "RG-SolutionA",
+  "type": "Microsoft.Network/loadBalancers/inboundNatRules"
+}
+ az network lb inbound-nat-rule create \
+--resource-group RG-SolutionA \
+--lb-name LBP \
+--name LBP-NAT-SSH-2 \
+--protocol Tcp \
+--frontend-port 10222 \
+--backend-port 22 \
+--frontend-ip-name LBP-FE
+{
+  "backendPort": 22,
+  "enableFloatingIP": false,
+  "enableTcpReset": false,
+  "etag": "W/\"101a6ebb-c2de-42f5-9363-93c756a134bb\"",
+  "frontendIPConfiguration": {
+    "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/loadBalancers/LBP/frontendIPConfigurations/LBP-FE",
+    "resourceGroup": "RG-SolutionA"
+  },
+  "frontendPort": 10222,
+  "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/loadBalancers/LBP/inboundNatRules/LBP-NAT-SSH-2",
+  "idleTimeoutInMinutes": 4,
+  "name": "LBP-NAT-SSH-2",
+  "protocol": "Tcp",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "RG-SolutionA",
+  "type": "Microsoft.Network/loadBalancers/inboundNatRules"
+}
+ az network lb outbound-rule create \
+--resource-group RG-SolutionA \
+--lb-name LBP \
+--name LBP-OUT \
+--frontend-ip-configs LBP-FE \
+--address-pool LBP-BEP \
+--protocol Tcp \
+--idle-timeout 30
+{
+  "allocatedOutboundPorts": 1024,
+  "backendAddressPool": {
+    "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/loadBalancers/LBP/backendAddressPools/LBP-BEP",
+    "resourceGroup": "RG-SolutionA"
+  },
+  "enableTcpReset": false,
+  "etag": "W/\"9ed2c077-73c6-49f3-a6e6-faa49c5974a6\"",
+  "frontendIPConfigurations": [
+    {
+      "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/loadBalancers/LBP/frontendIPConfigurations/LBP-FE",
+      "resourceGroup": "RG-SolutionA"
+    }
+  ],
+  "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/loadBalancers/LBP/outboundRules/LBP-OUT",
+  "idleTimeoutInMinutes": 30,
+  "name": "LBP-OUT",
+  "protocol": "Tcp",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "RG-SolutionA",
+  "type": "Microsoft.Network/loadBalancers/outboundRules"
+}
+ az vm availability-set create \
+--resource-group RG-SolutionA \
+--name AS-VM \
+--platform-fault-domain-count 2 \
+--platform-update-domain-count 2 \
+--location northeurope
+{
+  "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Compute/availabilitySets/AS-VM",
+  "location": "northeurope",
+  "name": "AS-VM",
+  "platformFaultDomainCount": 2,
+  "platformUpdateDomainCount": 2,
+  "resourceGroup": "RG-SolutionA",
+  "sku": {
+    "name": "Aligned"
+  },
+  "tags": {},
+  "type": "Microsoft.Compute/availabilitySets",
+  "virtualMachines": []
+}
+ az vm create \
+--resource-group RG-SolutionA \
+--name VM-1 \
+--image Ubuntu2404 \
+--size Standard_B1s \
+--admin-username tonytech \
+--admin-password "New_1234512345" \
+--availability-set AS-VM \
+--vnet-name NET \
+--subnet NET-SUB-VM \
+--nsg "" \
+--public-ip-address "" \
+--no-wait
+The default value of '--size' will be changed to 'Standard_D2s_v5' from 'Standard_DS1_v2' in a future release.
+ az vm create \
+--resource-group RG-SolutionA \
+--name VM-2 \
+--image Ubuntu2404 \
+--size Standard_B1s \
+--admin-username tonytech \
+--admin-password "New_1234512345" \
+--availability-set AS-VM \
+--vnet-name NET \
+--subnet NET-SUB-VM \
+--nsg "" \
+--public-ip-address "" \
+--no-wait
+The default value of '--size' will be changed to 'Standard_D2s_v5' from 'Standard_DS1_v2' in a future release.
+ az network nic list --resource-group RG-Solution -o table
+(ResourceGroupNotFound) Resource group 'RG-Solution' could not be found.
+Code: ResourceGroupNotFound
+Message: Resource group 'RG-Solution' could not be found.
+ az network nic list --resource-group RG-SolutionA -o table
+AuxiliaryMode    AuxiliarySku    DisableTcpStateTracking    EnableAcceleratedNetworking    EnableIPForwarding    Location     MacAddress         Name       NicType    Primary    ProvisioningState    ResourceGroup    ResourceGuid                          VnetEncryptionSupported
+---------------  --------------  -------------------------  -----------------------------  --------------------  -----------  -----------------  ---------  ---------  ---------  -------------------  ---------------  ------------------------------------  -------------------------
+None             None            False                      False                          False                 northeurope  7C-1E-52-36-F0-35  VM-1VMNic  Standard   True       Succeeded            RG-SolutionA     41d32b1d-8afb-4c74-ba8a-94bf620d878b  False
+None             None            False                      False                          False                 northeurope  7C-ED-8D-77-82-CB  VM-2VMNic  Standard   True       Succeeded            RG-SolutionA     a3657da0-72ff-4e05-820b-5046d26bdb0e  False
+ az network nic ip-config address-pool add \
+--address-pool LBP-BEP \
+--ip-config-name ipconfigVM-1 \
+--nic-name VM-1VMNic \
+--resource-group RG-SolutionA \
+--lb-name LBP
+{
+  "etag": "W/\"fde8dbcd-85f7-4f21-83af-7ca18502efbf\"",
+  "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/networkInterfaces/VM-1VMNic/ipConfigurations/ipconfigVM-1",
+  "loadBalancerBackendAddressPools": [
+    {
+      "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/loadBalancers/LBP/backendAddressPools/LBP-BEP",
+      "resourceGroup": "RG-SolutionA"
+    }
+  ],
+  "name": "ipconfigVM-1",
+  "primary": true,
+  "privateIPAddress": "10.0.1.4",
+  "privateIPAddressVersion": "IPv4",
+  "privateIPAllocationMethod": "Dynamic",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "RG-SolutionA",
+  "subnet": {
+    "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/virtualNetworks/NET/subnets/NET-SUB-VM",
+    "resourceGroup": "RG-SolutionA"
+  },
+  "type": "Microsoft.Network/networkInterfaces/ipConfigurations"
+}
+ az network nic ip-config address-pool add \
+--address-pool LBP-BEP \
+--ip-config-name ipconfigVM-2 \
+--nic-name VM-2VMNic \
+--resource-group RG-SolutionA \
+--lb-name LBP
+{
+  "etag": "W/\"03f5999f-025c-49b9-b11a-8f45325efb74\"",
+  "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/networkInterfaces/VM-2VMNic/ipConfigurations/ipconfigVM-2",
+  "loadBalancerBackendAddressPools": [
+    {
+      "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/loadBalancers/LBP/backendAddressPools/LBP-BEP",
+      "resourceGroup": "RG-SolutionA"
+    }
+  ],
+  "name": "ipconfigVM-2",
+  "primary": true,
+  "privateIPAddress": "10.0.1.5",
+  "privateIPAddressVersion": "IPv4",
+  "privateIPAllocationMethod": "Dynamic",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "RG-SolutionA",
+  "subnet": {
+    "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/virtualNetworks/NET/subnets/NET-SUB-VM",
+    "resourceGroup": "RG-SolutionA"
+  },
+  "type": "Microsoft.Network/networkInterfaces/ipConfigurations"
+}
+ az network nic ip-config inbound-nat-rule add \
+--resource-group RG-SolutionA \
+--nic-name VM-1VMNic \
+--ip-config-name ipconfigVM-1 \
+--lb-name LBP \
+--inbound-nat-rule LBP-NAT-SSH-1
+{
+  "etag": "W/\"bfe6d8fd-91d9-40c9-bd66-3e8a160253f5\"",
+  "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/networkInterfaces/VM-1VMNic/ipConfigurations/ipconfigVM-1",
+  "loadBalancerBackendAddressPools": [
+    {
+      "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/loadBalancers/LBP/backendAddressPools/LBP-BEP",
+      "resourceGroup": "RG-SolutionA"
+    }
+  ],
+  "loadBalancerInboundNatRules": [
+    {
+      "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/loadBalancers/LBP/inboundNatRules/LBP-NAT-SSH-1",
+      "resourceGroup": "RG-SolutionA"
+    }
+  ],
+  "name": "ipconfigVM-1",
+  "primary": true,
+  "privateIPAddress": "10.0.1.4",
+  "privateIPAddressVersion": "IPv4",
+  "privateIPAllocationMethod": "Dynamic",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "RG-SolutionA",
+  "subnet": {
+    "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/virtualNetworks/NET/subnets/NET-SUB-VM",
+    "resourceGroup": "RG-SolutionA"
+  },
+  "type": "Microsoft.Network/networkInterfaces/ipConfigurations"
+}
+ az network nic ip-config inbound-nat-rule add \
+--resource-group RG-SolutionA \
+--nic-name VM-2VMNic \
+--ip-config-name ipconfigVM-2 \
+--lb-name LBP \
+--inbound-nat-rule LBP-NAT-SSH-2
+{
+  "etag": "W/\"67bef8bd-fa57-49c6-a9b6-46f9f5750008\"",
+  "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/networkInterfaces/VM-2VMNic/ipConfigurations/ipconfigVM-2",
+  "loadBalancerBackendAddressPools": [
+    {
+      "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/loadBalancers/LBP/backendAddressPools/LBP-BEP",
+      "resourceGroup": "RG-SolutionA"
+    }
+  ],
+  "loadBalancerInboundNatRules": [
+    {
+      "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/loadBalancers/LBP/inboundNatRules/LBP-NAT-SSH-2",
+      "resourceGroup": "RG-SolutionA"
+    }
+  ],
+  "name": "ipconfigVM-2",
+  "primary": true,
+  "privateIPAddress": "10.0.1.5",
+  "privateIPAddressVersion": "IPv4",
+  "privateIPAllocationMethod": "Dynamic",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "RG-SolutionA",
+  "subnet": {
+    "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Network/virtualNetworks/NET/subnets/NET-SUB-VM",
+    "resourceGroup": "RG-SolutionA"
+  },
+  "type": "Microsoft.Network/networkInterfaces/ipConfigurations"
+}
+ az network public-ip show \
+--resource-group RG-Solution \
+--name LBP-IP \
+--query ipAddress \
+-o tsv
+ az network public-ip show \
+--resource-group RG-SolutionA \
+--name LBP-IP \
+--query ipAddress \
+-o tsv
+74.234.105.51
+ az sql server create \
+--resource-group RG-SolutionA \
+--name exam-sql-server \
+--location northeurope \
+--admin-user tonytech \
+--admin-password "New_1234512345"
+{
+  "administratorLogin": "tonytech",
+  "administratorLoginPassword": null,
+  "administrators": null,
+  "externalGovernanceStatus": "Disabled",
+  "federatedClientId": null,
+  "fullyQualifiedDomainName": "exam-sql-server.database.windows.net",
+  "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Sql/servers/exam-sql-server",
+  "identity": null,
+  "isIPv6Enabled": null,
+  "keyId": null,
+  "kind": "v12.0",
+  "location": "northeurope",
+  "minimalTlsVersion": "1.2",
+  "name": "exam-sql-server",
+  "primaryUserAssignedIdentityId": null,
+  "privateEndpointConnections": [],
+  "publicNetworkAccess": "Enabled",
+  "resourceGroup": "RG-SolutionA",
+  "restrictOutboundNetworkAccess": "Disabled",
+  "state": "Ready",
+  "tags": null,
+  "type": "Microsoft.Sql/servers",
+  "version": "12.0",
+  "workspaceFeature": null
+}
+ az sql db create \
+--resource-group RG-SolutionA \
+--server exam-sql-server \
+--name DB \
+--edition Basic \
+--backup-storage-redundancy Local
+{
+  "autoPauseDelay": null,
+  "availabilityZone": "NoPreference",
+  "catalogCollation": "SQL_Latin1_General_CP1_CI_AS",
+  "collation": "SQL_Latin1_General_CP1_CI_AS",
+  "createMode": null,
+  "creationDate": "2025-10-26T07:44:26.837000+00:00",
+  "currentBackupStorageRedundancy": "Local",
+  "currentServiceObjectiveName": "Basic",
+  "currentSku": {
+    "capacity": 5,
+    "family": null,
+    "name": "Basic",
+    "size": null,
+    "tier": "Basic"
+  },
+  "databaseId": "3bfec885-8ad0-45ea-bc37-cdf3a14bb2fb",
+  "defaultSecondaryLocation": "westeurope",
+  "earliestRestoreDate": null,
+  "edition": "Basic",
+  "elasticPoolId": null,
+  "elasticPoolName": null,
+  "encryptionProtector": null,
+  "encryptionProtectorAutoRotation": null,
+  "failoverGroupId": null,
+  "federatedClientId": null,
+  "freeLimitExhaustionBehavior": null,
+  "highAvailabilityReplicaCount": null,
+  "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Sql/servers/exam-sql-server/databases/DB",
+  "identity": null,
+  "isInfraEncryptionEnabled": false,
+  "keys": null,
+  "kind": "v12.0,user",
+  "ledgerOn": false,
+  "licenseType": null,
+  "location": "northeurope",
+  "longTermRetentionBackupResourceId": null,
+  "maintenanceConfigurationId": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_Default",
+  "managedBy": null,
+  "manualCutover": null,
+  "maxLogSizeBytes": null,
+  "maxSizeBytes": 2147483648,
+  "minCapacity": null,
+  "name": "DB",
+  "pausedDate": null,
+  "performCutover": null,
+  "preferredEnclaveType": null,
+  "readScale": "Disabled",
+  "recoverableDatabaseId": null,
+  "recoveryServicesRecoveryPointId": null,
+  "requestedBackupStorageRedundancy": "Local",
+  "requestedServiceObjectiveName": "Basic",
+  "resourceGroup": "RG-SolutionA",
+  "restorableDroppedDatabaseId": null,
+  "restorePointInTime": null,
+  "resumedDate": null,
+  "sampleName": null,
+  "secondaryType": null,
+  "sku": {
+    "capacity": 5,
+    "family": null,
+    "name": "Basic",
+    "size": null,
+    "tier": "Basic"
+  },
+  "sourceDatabaseDeletionDate": null,
+  "sourceDatabaseId": null,
+  "sourceResourceId": null,
+  "status": "Online",
+  "tags": null,
+  "type": "Microsoft.Sql/servers/databases",
+  "useFreeLimit": null,
+  "zoneRedundant": false
+}
+ az sql server firewall-rule create \
+--resource-group RG-SolutionA \
+--server exam-sql-server \
+--name AllowAzureServices \
+--start-ip-address 0.0.0.0 \
+--end-ip-address 0.0.0.0
+{
+  "endIpAddress": "0.0.0.0",
+  "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Sql/servers/exam-sql-server/firewallRules/AllowAzureServices",
+  "name": "AllowAzureServices",
+  "resourceGroup": "RG-SolutionA",
+  "startIpAddress": "0.0.0.0",
+  "type": "Microsoft.Sql/servers/firewallRules"
+}
+ az sql server firewall-rule create \
+--resource-group RG-SolutionA \
+--server exam-sql-server \
+--name AllowClientIP \
+--start-ip-address $(curl -s ifconfig.me) \
+--end-ip-address $(curl -s ifconfig.me)
+{
+  "endIpAddress": "46.10.209.232",
+  "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Sql/servers/exam-sql-server/firewallRules/AllowClientIP",
+  "name": "AllowClientIP",
+  "resourceGroup": "RG-SolutionA",
+  "startIpAddress": "46.10.209.232",
+  "type": "Microsoft.Sql/servers/firewallRules"
+}
+ sqlcmd -S exam-sql-server.database.windows.net \
+       -d DB \
+       -U tonytech \
+       -P "New_1234512345" \
+       -C \
+       -i variant-a/sql/create-structures.sql
+Sqlcmd: 'variant-a/sql/create-structures.sql': Invalid filename.
+ sqlcmd -S exam-sql-server.database.windows.net \
+       -d DB \
+       -U tonytech \
+       -P "New_1234512345" \
+       -C \
+       -i variant-a/db/create-structures.sql
+
+(1 rows affected)
+
+(1 rows affected)
+
+(1 rows affected)
+
+(1 rows affected)
+ cd variant-a/app1/ls
+cd: no such file or directory: variant-a/app1/ls
+ cd variant-a/app1/
+ ls
+ .   ..   config.php   index.php   result.php   vote.php
+ scp -P 10122 *.php tonytech@74.234.105.51:.
+The authenticity of host '[74.234.105.51]:10122 ([74.234.105.51]:10122)' can't be established.
+ED25519 key fingerprint is SHA256:oYbxH7g7AGfdjlB7m0a/wjJA6ng/aKTyWCQey5/l054.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '[74.234.105.51]:10122' (ED25519) to the list of known hosts.
+tonytech@74.234.105.51's password:
+config.php                                                                                                                                            100%  356     6.6KB/s   00:00
+index.php                                                                                                                                             100%  665    12.1KB/s   00:00
+result.php                                                                                                                                            100%  651    11.9KB/s   00:00
+vote.php                                                                                                                                              100%  407     7.3KB/s   00:00
+ scp -P 10222 *.php tonytech@74.234.105.51:.
+The authenticity of host '[74.234.105.51]:10222 ([74.234.105.51]:10222)' can't be established.
+ED25519 key fingerprint is SHA256:QNwqUs5qhmP2Nu2zLmACzvUCjlt1FdJpbjCLbYv7AEM.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '[74.234.105.51]:10222' (ED25519) to the list of known hosts.
+tonytech@74.234.105.51's password:
+config.php                                                                                                                                            100%  356     6.7KB/s   00:00
+index.php                                                                                                                                             100%  665    12.5KB/s   00:00
+result.php                                                                                                                                            100%  651    11.7KB/s   00:00
+vote.php                                                                                                                                              100%  407     7.5KB/s   00:00
+ az acr create \
+--resource-group RG-SolutionA \
+--name examprepcr \
+--sku Basic \
+--admin-enabled true \
+--public-network-enabled true \
+--tags purpose=exam
+{
+  "adminUserEnabled": true,
+  "anonymousPullEnabled": false,
+  "autoGeneratedDomainNameLabelScope": "Unsecure",
+  "creationDate": "2025-10-26T08:13:20.748025+00:00",
+  "dataEndpointEnabled": false,
+  "dataEndpointHostNames": [],
+  "encryption": {
+    "keyVaultProperties": null,
+    "status": "disabled"
+  },
+  "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.ContainerRegistry/registries/examprepcr",
+  "identity": null,
+  "location": "northeurope",
+  "loginServer": "examprepcr.azurecr.io",
+  "metadataSearch": "Disabled",
+  "name": "examprepcr",
+  "networkRuleBypassOptions": "AzureServices",
+  "networkRuleSet": null,
+  "policies": {
+    "azureAdAuthenticationAsArmPolicy": {
+      "status": "enabled"
+    },
+    "exportPolicy": {
+      "status": "enabled"
+    },
+    "quarantinePolicy": {
+      "status": "disabled"
+    },
+    "retentionPolicy": {
+      "days": 7,
+      "lastUpdatedTime": "2025-10-26T08:13:28.244886+00:00",
+      "status": "disabled"
+    },
+    "softDeletePolicy": {
+      "lastUpdatedTime": "2025-10-26T08:13:28.244925+00:00",
+      "retentionDays": 7,
+      "status": "disabled"
+    },
+    "trustPolicy": {
+      "status": "disabled",
+      "type": "Notary"
+    }
+  },
+  "privateEndpointConnections": [],
+  "provisioningState": "Succeeded",
+  "publicNetworkAccess": "Enabled",
+  "resourceGroup": "RG-SolutionA",
+  "roleAssignmentMode": "LegacyRegistryPermissions",
+  "sku": {
+    "name": "Basic",
+    "tier": "Basic"
+  },
+  "status": null,
+  "systemData": {
+    "createdAt": "2025-10-26T08:13:20.748025+00:00",
+    "createdBy": "bravo_a@abv.bg",
+    "createdByType": "User",
+    "lastModifiedAt": "2025-10-26T08:13:20.748025+00:00",
+    "lastModifiedBy": "bravo_a@abv.bg",
+    "lastModifiedByType": "User"
+  },
+  "tags": {
+    "purpose": "exam"
+  },
+  "type": "Microsoft.ContainerRegistry/registries",
+  "zoneRedundancy": "Disabled"
+}
+ az lock create \
+--name Exam-Lock \
+--lock-type CanNotDelete \
+--resource-group RG-SolutionA \
+--resource-name examprepcr \
+--resource-type "Microsoft.ContainerRegistry/registries"
+{
+  "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourcegroups/RG-SolutionA/providers/Microsoft.ContainerRegistry/registries/examprepcr/providers/Microsoft.Authorization/locks/Exam-Lock",
+  "level": "CanNotDelete",
+  "name": "Exam-Lock",
+  "notes": null,
+  "owners": null,
+  "resourceGroup": "RG-SolutionA",
+  "type": "Microsoft.Authorization/locks"
+}
+ az acr login --name examprepcr
+Login Succeeded
+ cd ../app4
+ ls
+ .   ..   web   Dockerfile
+ docker build . -t php-app
+[+] Building 1.7s (7/7) FINISHED                                                                                                                                         docker:default
+ => [internal] load build definition from Dockerfile                                                                                                                               0.1s
+ => => transferring dockerfile: 98B                                                                                                                                                0.0s
+ => [internal] load metadata for docker.io/shekeriev/php:8.3-apache-sql                                                                                                            1.1s
+ => [internal] load .dockerignore                                                                                                                                                  0.0s
+ => => transferring context: 2B                                                                                                                                                    0.0s
+ => [internal] load build context                                                                                                                                                  0.1s
+ => => transferring context: 1.12kB                                                                                                                                                0.1s
+ => [1/2] FROM docker.io/shekeriev/php:8.3-apache-sql@sha256:08f34ac855d33eb4f0ec867981ce0bdb1508ec21aefc82adeb5bc356e0a63840                                                      0.0s
+ => => resolve docker.io/shekeriev/php:8.3-apache-sql@sha256:08f34ac855d33eb4f0ec867981ce0bdb1508ec21aefc82adeb5bc356e0a63840                                                      0.0s
+ => CACHED [2/2] COPY web/ /var/www/html/                                                                                                                                          0.0s
+ => exporting to image                                                                                                                                                             0.2s
+ => => exporting layers                                                                                                                                                            0.0s
+ => => exporting manifest sha256:2781a755f11d8abeb43fb6886221a9c18442251c8450c9cc7c51e26af15f4d01                                                                                  0.0s
+ => => exporting config sha256:269aaa347083197524c549a93d5912efcaf8f99f1bdd627af34cfc73940ee3be                                                                                    0.0s
+ => => exporting attestation manifest sha256:14ccccfd43cbf5a94a13e679fab6aa7a1561bca6a1a6b8ddb00f463b5eee7a2c                                                                      0.0s
+ => => exporting manifest list sha256:998ebdb504ac33c17809b66b6211ec1b2a0f988ac37de5095901b5b29eb8865a                                                                             0.0s
+ => => naming to docker.io/library/php-app:latest                                                                                                                                  0.0s
+ => => unpacking to docker.io/library/php-app:latest                                                                                                                               0.0s
+ docker build . -t php-app
+[+] Building 0.7s (7/7) FINISHED                                                                                                                                         docker:default
+ => [internal] load build definition from Dockerfile                                                                                                                               0.0s
+ => => transferring dockerfile: 98B                                                                                                                                                0.0s
+ => [internal] load metadata for docker.io/shekeriev/php:8.3-apache-sql                                                                                                            0.3s
+ => [internal] load .dockerignore                                                                                                                                                  0.0s
+ => => transferring context: 2B                                                                                                                                                    0.0s
+ => [internal] load build context                                                                                                                                                  0.0s
+ => => transferring context: 92B                                                                                                                                                   0.0s
+ => [1/2] FROM docker.io/shekeriev/php:8.3-apache-sql@sha256:08f34ac855d33eb4f0ec867981ce0bdb1508ec21aefc82adeb5bc356e0a63840                                                      0.0s
+ => => resolve docker.io/shekeriev/php:8.3-apache-sql@sha256:08f34ac855d33eb4f0ec867981ce0bdb1508ec21aefc82adeb5bc356e0a63840                                                      0.0s
+ => CACHED [2/2] COPY web/ /var/www/html/                                                                                                                                          0.0s
+ => exporting to image                                                                                                                                                             0.2s
+ => => exporting layers                                                                                                                                                            0.0s
+ => => exporting manifest sha256:2781a755f11d8abeb43fb6886221a9c18442251c8450c9cc7c51e26af15f4d01                                                                                  0.0s
+ => => exporting config sha256:269aaa347083197524c549a93d5912efcaf8f99f1bdd627af34cfc73940ee3be                                                                                    0.0s
+ => => exporting attestation manifest sha256:2ef9e38412c8daa174df1fb66a643f1bb5d19a54a32479c8e7a09db5134c9945                                                                      0.0s
+ => => exporting manifest list sha256:0e31964aa1de41122e6ae8f3bc004a448c4719a21cd0c03ce4db3f2645165c7a                                                                             0.0s
+ => => naming to docker.io/library/php-app:latest                                                                                                                                  0.0s
+ => => unpacking to docker.io/library/php-app:latest                                                                                                                               0.0s
+ docker tag php-app examprepcr.azurecr.io/php-app:v1
+ docker push examprepcr.azurecr.io/php-app:v1
+The push refers to repository [examprepcr.azurecr.io/php-app]
+bef1b237c949: Pushed
+9c790c1c009d: Pushed
+c52a2be77c77: Pushed
+91e7d6fbd267: Pushed
+9e050c959e73: Pushed
+2051e0e35a8a: Pushed
+394cbff85215: Pushed
+5a9d72b3b895: Pushed
+e1caac4eb9d2: Pushed
+ce2d1f3dc91b: Pushed
+56c66cb68b0f: Pushed
+03905230498a: Pushed
+23c958fb5105: Pushed
+0c022f1d0edd: Pushed
+f007394c5662: Pushed
+e055748d0b38: Pushed
+686fbee431d9: Pushed
+8c386db9cb1d: Pushed
+v1: digest: sha256:0e31964aa1de41122e6ae8f3bc004a448c4719a21cd0c03ce4db3f2645165c7a size: 856
+ export ACR_PASSWORD="$(az acr credential show --name examprepcr --query 'passwords[0].value' -o tsv | tr -d '\r\n')"
+ az container create \
+--resource-group RG-SolutionA \
+--name exam-container \
+--image examprepcr.azurecr.io/php-app:v1 \
+--dns-name-label exam-php-app \
+--ports 80 \
+--os-type linux \
+--cpu 1 \
+--memory 1.5 \
+--location northeurope \
+--registry-login-server examprepcr.azurecr.io \
+--registry-username examprepcr \
+--registry-password "$ACR_PASSWORD"
+{
+  "confidentialComputeProperties": null,
+  "containerGroupProfile": null,
+  "containers": [
+    {
+      "command": null,
+      "configMap": {
+        "keyValuePairs": {}
+      },
+      "environmentVariables": [],
+      "image": "examprepcr.azurecr.io/php-app:v1",
+      "instanceView": {
+        "currentState": {
+          "detailStatus": "",
+          "exitCode": null,
+          "finishTime": null,
+          "startTime": "2025-10-26T08:22:37.328000+00:00",
+          "state": "Running"
+        },
+        "events": [
+          {
+            "count": 1,
+            "firstTimestamp": "2025-10-26T08:22:17+00:00",
+            "lastTimestamp": "2025-10-26T08:22:17+00:00",
+            "message": "pulling image \"examprepcr.azurecr.io/php-app@sha256:2781a755f11d8abeb43fb6886221a9c18442251c8450c9cc7c51e26af15f4d01\"",
+            "name": "Pulling",
+            "type": "Normal"
+          },
+          {
+            "count": 1,
+            "firstTimestamp": "2025-10-26T08:22:29+00:00",
+            "lastTimestamp": "2025-10-26T08:22:29+00:00",
+            "message": "Successfully pulled image \"examprepcr.azurecr.io/php-app@sha256:2781a755f11d8abeb43fb6886221a9c18442251c8450c9cc7c51e26af15f4d01\"",
+            "name": "Pulled",
+            "type": "Normal"
+          }
+        ],
+        "previousState": null,
+        "restartCount": 0
+      },
+      "livenessProbe": null,
+      "name": "exam-container",
+      "ports": [
+        {
+          "port": 80,
+          "protocol": "TCP"
+        }
+      ],
+      "readinessProbe": null,
+      "resources": {
+        "limits": null,
+        "requests": {
+          "cpu": 1.0,
+          "gpu": null,
+          "memoryInGb": 1.5
+        }
+      },
+      "securityContext": null,
+      "volumeMounts": null
+    }
+  ],
+  "diagnostics": null,
+  "dnsConfig": null,
+  "encryptionProperties": null,
+  "extensions": null,
+  "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.ContainerInstance/containerGroups/exam-container",
+  "identity": null,
+  "imageRegistryCredentials": [
+    {
+      "identity": null,
+      "identityUrl": null,
+      "isDelegatedIdentity": false,
+      "password": null,
+      "server": "examprepcr.azurecr.io",
+      "username": "examprepcr"
+    }
+  ],
+  "initContainers": [],
+  "instanceView": {
+    "events": [],
+    "state": "Running"
+  },
+  "ipAddress": {
+    "autoGeneratedDomainNameLabelScope": "Unsecure",
+    "dnsNameLabel": "exam-php-app",
+    "fqdn": "exam-php-app.northeurope.azurecontainer.io",
+    "ip": "20.82.233.32",
+    "ports": [
+      {
+        "port": 80,
+        "protocol": "TCP"
+      }
+    ],
+    "type": "Public"
+  },
+  "isCreatedFromStandbyPool": false,
+  "location": "northeurope",
+  "name": "exam-container",
+  "osType": "Linux",
+  "priority": null,
+  "provisioningState": "Succeeded",
+  "resourceGroup": "RG-SolutionA",
+  "restartPolicy": null,
+  "sku": "Standard",
+  "standbyPoolProfile": null,
+  "subnetIds": null,
+  "tags": {},
+  "type": "Microsoft.ContainerInstance/containerGroups",
+  "volumes": null,
+  "zones": null
+}
+ az container show -g RG-Solution -n exam-container --query "{FQDN:ipAddress.fqdn}"
+(ResourceGroupNotFound) Resource group 'RG-Solution' could not be found.
+Code: ResourceGroupNotFound
+Message: Resource group 'RG-Solution' could not be found.
+ az container show -g RG-SolutionA -n exam-container --query "{FQDN:ipAddress.fqdn}"
+{
+  "FQDN": "exam-php-app.northeurope.azurecontainer.io"
+}
+ az appservice plan create \
+--name asp-exam \
+--resource-group RG-SolutionA \
+--location northeurope \
+--sku B1 \
+--is-linux
+{
+  "asyncScalingEnabled": false,
+  "elasticScaleEnabled": false,
+  "extendedLocation": null,
+  "freeOfferExpirationTime": "2025-11-25T08:26:25.970000",
+  "geoRegion": "North Europe",
+  "hostingEnvironmentProfile": null,
+  "hyperV": false,
+  "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Web/serverfarms/asp-exam",
+  "isSpot": false,
+  "isXenon": false,
+  "kind": "linux",
+  "kubeEnvironmentProfile": null,
+  "location": "northeurope",
+  "maximumElasticWorkerCount": 1,
+  "maximumNumberOfWorkers": 0,
+  "name": "asp-exam",
+  "numberOfSites": 0,
+  "numberOfWorkers": 1,
+  "perSiteScaling": false,
+  "provisioningState": "Succeeded",
+  "reserved": true,
+  "resourceGroup": "RG-SolutionA",
+  "sku": {
+    "capabilities": null,
+    "capacity": 1,
+    "family": "B",
+    "locations": null,
+    "name": "B1",
+    "size": "B1",
+    "skuCapacity": null,
+    "tier": "Basic"
+  },
+  "spotExpirationTime": null,
+  "status": "Ready",
+  "subscription": "ede4771c-fc75-42d7-9d7f-e2250e8cf5d4",
+  "tags": null,
+  "targetWorkerCount": 0,
+  "targetWorkerSizeId": 0,
+  "type": "Microsoft.Web/serverfarms",
+  "workerTierName": null,
+  "zoneRedundant": false
+}
+ az webapp create \
+--resource-group RG-SolutionA \
+--plan asp-exam \
+--name exam-web-app2 \
+--runtime "PHP|8.3" \
+--basic-auth Enabled
+vnet_route_all_enabled is not a known attribute of class <class 'azure.mgmt.web.v2024_11_01.models._models_py3.Site'> and will be ignored
+{
+  "autoGeneratedDomainNameLabelScope": null,
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientAffinityPartitioningEnabled": null,
+  "clientAffinityProxyEnabled": false,
+  "clientCertEnabled": false,
+  "clientCertExclusionPaths": null,
+  "clientCertMode": "Required",
+  "cloningInfo": null,
+  "containerSize": 0,
+  "customDomainVerificationId": "5DB84B51203318305B53148A135BFA622CA58C809FFC0A7A433BE25EB259D262",
+  "dailyMemoryTimeQuota": 0,
+  "daprConfig": null,
+  "defaultHostName": "exam-web-app2.azurewebsites.net",
+  "dnsConfiguration": {
+    "dnsAltServer": null,
+    "dnsLegacySortOrder": null,
+    "dnsMaxCacheTimeout": null,
+    "dnsRetryAttemptCount": null,
+    "dnsRetryAttemptTimeout": null,
+    "dnsServers": null
+  },
+  "enabled": true,
+  "enabledHostNames": [
+    "exam-web-app2.azurewebsites.net",
+    "exam-web-app2.scm.azurewebsites.net"
+  ],
+  "endToEndEncryptionEnabled": false,
+  "extendedLocation": null,
+  "ftpPublishingUrl": "ftps://waws-prod-db3-165.ftp.azurewebsites.windows.net/site/wwwroot",
+  "functionAppConfig": null,
+  "hostNameSslStates": [
+    {
+      "certificateResourceId": null,
+      "hostType": "Standard",
+      "ipBasedSslResult": null,
+      "ipBasedSslState": "NotConfigured",
+      "name": "exam-web-app2.azurewebsites.net",
+      "sslState": "Disabled",
+      "thumbprint": null,
+      "toUpdate": null,
+      "toUpdateIpBasedSsl": null,
+      "virtualIPv6": null,
+      "virtualIp": null
+    },
+    {
+      "certificateResourceId": null,
+      "hostType": "Repository",
+      "ipBasedSslResult": null,
+      "ipBasedSslState": "NotConfigured",
+      "name": "exam-web-app2.scm.azurewebsites.net",
+      "sslState": "Disabled",
+      "thumbprint": null,
+      "toUpdate": null,
+      "toUpdateIpBasedSsl": null,
+      "virtualIPv6": null,
+      "virtualIp": null
+    }
+  ],
+  "hostNames": [
+    "exam-web-app2.azurewebsites.net"
+  ],
+  "hostNamesDisabled": false,
+  "hostingEnvironmentProfile": null,
+  "httpsOnly": false,
+  "hyperV": false,
+  "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Web/sites/exam-web-app2",
+  "identity": null,
+  "inProgressOperationId": null,
+  "ipMode": "IPv4",
+  "isDefaultContainer": null,
+  "isXenon": false,
+  "keyVaultReferenceIdentity": "SystemAssigned",
+  "kind": "app,linux",
+  "lastModifiedTimeUtc": "2025-10-26T08:29:30.913333",
+  "location": "North Europe",
+  "managedEnvironmentId": null,
+  "maxNumberOfWorkers": null,
+  "name": "exam-web-app2",
+  "outboundIpAddresses": "13.79.7.61,13.79.20.122,13.79.17.39,13.79.20.132,13.69.228.51",
+  "outboundVnetRouting": {
+    "allTraffic": false,
+    "applicationTraffic": false,
+    "backupRestoreTraffic": false,
+    "contentShareTraffic": false,
+    "imagePullTraffic": false,
+    "managedIdentityTraffic": false
+  },
+  "possibleOutboundIpAddresses": "13.79.7.61,13.79.20.122,13.79.17.39,13.79.20.132,40.127.195.147,13.79.23.100,40.115.124.254,13.79.21.76,13.79.16.249,51.138.233.11,51.138.233.21,51.138.233.56,51.138.234.131,51.138.234.179,51.138.234.201,20.105.11.235,20.105.12.51,20.105.13.53,20.105.13.210,20.67.143.188,20.105.10.73,13.69.228.51",
+  "publicNetworkAccess": "Enabled",
+  "redundancyMode": "None",
+  "repositorySiteName": "exam-web-app2",
+  "reserved": true,
+  "resourceConfig": null,
+  "resourceGroup": "RG-SolutionA",
+  "scmSiteAlsoStopped": false,
+  "serverFarmId": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Web/serverfarms/asp-exam",
+  "siteConfig": {
+    "acrUseManagedIdentityCreds": false,
+    "acrUserManagedIdentityId": null,
+    "alwaysOn": false,
+    "antivirusScanEnabled": null,
+    "apiDefinition": null,
+    "apiManagementConfig": null,
+    "appCommandLine": null,
+    "appSettings": null,
+    "autoHealEnabled": null,
+    "autoHealRules": null,
+    "autoSwapSlotName": null,
+    "azureMonitorLogCategories": null,
+    "azureStorageAccounts": null,
+    "clusteringEnabled": false,
+    "connectionStrings": null,
+    "cors": null,
+    "customAppPoolIdentityAdminState": null,
+    "customAppPoolIdentityTenantState": null,
+    "defaultDocuments": null,
+    "detailedErrorLoggingEnabled": null,
+    "documentRoot": null,
+    "elasticWebAppScaleLimit": 0,
+    "experiments": null,
+    "fileChangeAuditEnabled": null,
+    "ftpsState": null,
+    "functionAppScaleLimit": null,
+    "functionsRuntimeScaleMonitoringEnabled": null,
+    "handlerMappings": null,
+    "healthCheckPath": null,
+    "http20Enabled": false,
+    "http20ProxyFlag": null,
+    "httpLoggingEnabled": null,
+    "ipSecurityRestrictions": [
+      {
+        "action": "Allow",
+        "description": "Allow all access",
+        "headers": null,
+        "ipAddress": "Any",
+        "name": "Allow all",
+        "priority": 2147483647,
+        "subnetMask": null,
+        "subnetTrafficTag": null,
+        "tag": null,
+        "vnetSubnetResourceId": null,
+        "vnetTrafficTag": null
+      }
+    ],
+    "ipSecurityRestrictionsDefaultAction": null,
+    "javaContainer": null,
+    "javaContainerVersion": null,
+    "javaVersion": null,
+    "keyVaultReferenceIdentity": null,
+    "limits": null,
+    "linuxFxVersion": "",
+    "loadBalancing": null,
+    "localMySqlEnabled": null,
+    "logsDirectorySizeLimit": null,
+    "machineKey": null,
+    "managedPipelineMode": null,
+    "managedServiceIdentityId": null,
+    "metadata": null,
+    "minTlsCipherSuite": null,
+    "minTlsVersion": null,
+    "minimumElasticInstanceCount": 0,
+    "netFrameworkVersion": null,
+    "nodeVersion": null,
+    "numberOfWorkers": 1,
+    "phpVersion": null,
+    "powerShellVersion": null,
+    "preWarmedInstanceCount": null,
+    "publicNetworkAccess": null,
+    "publishingPassword": null,
+    "publishingUsername": null,
+    "push": null,
+    "pythonVersion": null,
+    "remoteDebuggingEnabled": null,
+    "remoteDebuggingVersion": null,
+    "requestTracingEnabled": null,
+    "requestTracingExpirationTime": null,
+    "routingRules": null,
+    "runtimeADUser": null,
+    "runtimeADUserPassword": null,
+    "sandboxType": null,
+    "scmIpSecurityRestrictions": [
+      {
+        "action": "Allow",
+        "description": "Allow all access",
+        "headers": null,
+        "ipAddress": "Any",
+        "name": "Allow all",
+        "priority": 2147483647,
+        "subnetMask": null,
+        "subnetTrafficTag": null,
+        "tag": null,
+        "vnetSubnetResourceId": null,
+        "vnetTrafficTag": null
+      }
+    ],
+    "scmIpSecurityRestrictionsDefaultAction": null,
+    "scmIpSecurityRestrictionsUseMain": null,
+    "scmMinTlsCipherSuite": null,
+    "scmMinTlsVersion": null,
+    "scmSupportedTlsCipherSuites": null,
+    "scmType": null,
+    "sitePort": null,
+    "sitePrivateLinkHostEnabled": null,
+    "storageType": null,
+    "supportedTlsCipherSuites": null,
+    "tracingOptions": null,
+    "use32BitWorkerProcess": null,
+    "virtualApplications": null,
+    "vnetName": null,
+    "vnetPrivatePortsCount": null,
+    "vnetRouteAllEnabled": null,
+    "webJobsEnabled": false,
+    "webSocketsEnabled": null,
+    "websiteTimeZone": null,
+    "winAuthAdminState": null,
+    "winAuthTenantState": null,
+    "windowsConfiguredStacks": null,
+    "windowsFxVersion": null,
+    "xManagedServiceIdentityId": null
+  },
+  "sku": "Basic",
+  "slotSwapStatus": null,
+  "sshEnabled": null,
+  "state": "Running",
+  "storageAccountRequired": false,
+  "suspendedTill": null,
+  "tags": null,
+  "targetSwapSlot": null,
+  "trafficManagerHostNames": null,
+  "type": "Microsoft.Web/sites",
+  "usageState": "Normal",
+  "virtualNetworkSubnetId": null,
+  "workloadProfileName": null
+}
+ az webapp deployment list-publishing-profiles \
+--name exam-web-app2 \
+--resource-group RG-SolutionA \
+--query "[?publishMethod=='FTP'].[publishUrl,userName,userPWD]" \
+--output tsv
+ftps://waws-prod-db3-165.ftp.azurewebsites.windows.net/site/wwwroot     exam-web-app2\$exam-web-app2    XLxhix8hgzqvs7Gse9ohCcDBHhTCFMvkKJhWlJQlk5j0WcuFnpvNqr8SHJKc
+ftps://waws-prod-db3-165dr.ftp.azurewebsites.windows.net/site/wwwroot   exam-web-app2\$exam-web-app2    XLxhix8hgzqvs7Gse9ohCcDBHhTCFMvkKJhWlJQlk5j0WcuFnpvNqr8SHJKc
+ az webapp show \
+  --name exam-web-app2 \
+  --resource-group RG-SolutionA \
+  --query defaultHostName \
+  -o tsv
+exam-web-app2.azurewebsites.net
+ az webapp create \
+--resource-group RG-SolutionA \
+--plan asp-exam \
+--name exam-web-app3 \
+--runtime "PHP|8.3" \
+--basic-auth Enabled
+vnet_route_all_enabled is not a known attribute of class <class 'azure.mgmt.web.v2024_11_01.models._models_py3.Site'> and will be ignored
+{
+  "autoGeneratedDomainNameLabelScope": null,
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientAffinityPartitioningEnabled": null,
+  "clientAffinityProxyEnabled": false,
+  "clientCertEnabled": false,
+  "clientCertExclusionPaths": null,
+  "clientCertMode": "Required",
+  "cloningInfo": null,
+  "containerSize": 0,
+  "customDomainVerificationId": "5DB84B51203318305B53148A135BFA622CA58C809FFC0A7A433BE25EB259D262",
+  "dailyMemoryTimeQuota": 0,
+  "daprConfig": null,
+  "defaultHostName": "exam-web-app3.azurewebsites.net",
+  "dnsConfiguration": {
+    "dnsAltServer": null,
+    "dnsLegacySortOrder": null,
+    "dnsMaxCacheTimeout": null,
+    "dnsRetryAttemptCount": null,
+    "dnsRetryAttemptTimeout": null,
+    "dnsServers": null
+  },
+  "enabled": true,
+  "enabledHostNames": [
+    "exam-web-app3.azurewebsites.net",
+    "exam-web-app3.scm.azurewebsites.net"
+  ],
+  "endToEndEncryptionEnabled": false,
+  "extendedLocation": null,
+  "ftpPublishingUrl": "ftps://waws-prod-db3-165.ftp.azurewebsites.windows.net/site/wwwroot",
+  "functionAppConfig": null,
+  "hostNameSslStates": [
+    {
+      "certificateResourceId": null,
+      "hostType": "Standard",
+      "ipBasedSslResult": null,
+      "ipBasedSslState": "NotConfigured",
+      "name": "exam-web-app3.azurewebsites.net",
+      "sslState": "Disabled",
+      "thumbprint": null,
+      "toUpdate": null,
+      "toUpdateIpBasedSsl": null,
+      "virtualIPv6": null,
+      "virtualIp": null
+    },
+    {
+      "certificateResourceId": null,
+      "hostType": "Repository",
+      "ipBasedSslResult": null,
+      "ipBasedSslState": "NotConfigured",
+      "name": "exam-web-app3.scm.azurewebsites.net",
+      "sslState": "Disabled",
+      "thumbprint": null,
+      "toUpdate": null,
+      "toUpdateIpBasedSsl": null,
+      "virtualIPv6": null,
+      "virtualIp": null
+    }
+  ],
+  "hostNames": [
+    "exam-web-app3.azurewebsites.net"
+  ],
+  "hostNamesDisabled": false,
+  "hostingEnvironmentProfile": null,
+  "httpsOnly": false,
+  "hyperV": false,
+  "id": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Web/sites/exam-web-app3",
+  "identity": null,
+  "inProgressOperationId": null,
+  "ipMode": "IPv4",
+  "isDefaultContainer": null,
+  "isXenon": false,
+  "keyVaultReferenceIdentity": "SystemAssigned",
+  "kind": "app,linux",
+  "lastModifiedTimeUtc": "2025-10-26T08:35:38.700000",
+  "location": "North Europe",
+  "managedEnvironmentId": null,
+  "maxNumberOfWorkers": null,
+  "name": "exam-web-app3",
+  "outboundIpAddresses": "13.79.7.61,13.79.20.122,13.79.17.39,13.79.20.132,13.69.228.51",
+  "outboundVnetRouting": {
+    "allTraffic": false,
+    "applicationTraffic": false,
+    "backupRestoreTraffic": false,
+    "contentShareTraffic": false,
+    "imagePullTraffic": false,
+    "managedIdentityTraffic": false
+  },
+  "possibleOutboundIpAddresses": "13.79.7.61,13.79.20.122,13.79.17.39,13.79.20.132,40.127.195.147,13.79.23.100,40.115.124.254,13.79.21.76,13.79.16.249,51.138.233.11,51.138.233.21,51.138.233.56,51.138.234.131,51.138.234.179,51.138.234.201,20.105.11.235,20.105.12.51,20.105.13.53,20.105.13.210,20.67.143.188,20.105.10.73,13.69.228.51",
+  "publicNetworkAccess": "Enabled",
+  "redundancyMode": "None",
+  "repositorySiteName": "exam-web-app3",
+  "reserved": true,
+  "resourceConfig": null,
+  "resourceGroup": "RG-SolutionA",
+  "scmSiteAlsoStopped": false,
+  "serverFarmId": "/subscriptions/ede4771c-fc75-42d7-9d7f-e2250e8cf5d4/resourceGroups/RG-SolutionA/providers/Microsoft.Web/serverfarms/asp-exam",
+  "siteConfig": {
+    "acrUseManagedIdentityCreds": false,
+    "acrUserManagedIdentityId": null,
+    "alwaysOn": false,
+    "antivirusScanEnabled": null,
+    "apiDefinition": null,
+    "apiManagementConfig": null,
+    "appCommandLine": null,
+    "appSettings": null,
+    "autoHealEnabled": null,
+    "autoHealRules": null,
+    "autoSwapSlotName": null,
+    "azureMonitorLogCategories": null,
+    "azureStorageAccounts": null,
+    "clusteringEnabled": false,
+    "connectionStrings": null,
+    "cors": null,
+    "customAppPoolIdentityAdminState": null,
+    "customAppPoolIdentityTenantState": null,
+    "defaultDocuments": null,
+    "detailedErrorLoggingEnabled": null,
+    "documentRoot": null,
+    "elasticWebAppScaleLimit": 0,
+    "experiments": null,
+    "fileChangeAuditEnabled": null,
+    "ftpsState": null,
+    "functionAppScaleLimit": null,
+    "functionsRuntimeScaleMonitoringEnabled": null,
+    "handlerMappings": null,
+    "healthCheckPath": null,
+    "http20Enabled": false,
+    "http20ProxyFlag": null,
+    "httpLoggingEnabled": null,
+    "ipSecurityRestrictions": [
+      {
+        "action": "Allow",
+        "description": "Allow all access",
+        "headers": null,
+        "ipAddress": "Any",
+        "name": "Allow all",
+        "priority": 2147483647,
+        "subnetMask": null,
+        "subnetTrafficTag": null,
+        "tag": null,
+        "vnetSubnetResourceId": null,
+        "vnetTrafficTag": null
+      }
+    ],
+    "ipSecurityRestrictionsDefaultAction": null,
+    "javaContainer": null,
+    "javaContainerVersion": null,
+    "javaVersion": null,
+    "keyVaultReferenceIdentity": null,
+    "limits": null,
+    "linuxFxVersion": "",
+    "loadBalancing": null,
+    "localMySqlEnabled": null,
+    "logsDirectorySizeLimit": null,
+    "machineKey": null,
+    "managedPipelineMode": null,
+    "managedServiceIdentityId": null,
+    "metadata": null,
+    "minTlsCipherSuite": null,
+    "minTlsVersion": null,
+    "minimumElasticInstanceCount": 0,
+    "netFrameworkVersion": null,
+    "nodeVersion": null,
+    "numberOfWorkers": 1,
+    "phpVersion": null,
+    "powerShellVersion": null,
+    "preWarmedInstanceCount": null,
+    "publicNetworkAccess": null,
+    "publishingPassword": null,
+    "publishingUsername": null,
+    "push": null,
+    "pythonVersion": null,
+    "remoteDebuggingEnabled": null,
+    "remoteDebuggingVersion": null,
+    "requestTracingEnabled": null,
+    "requestTracingExpirationTime": null,
+    "routingRules": null,
+    "runtimeADUser": null,
+    "runtimeADUserPassword": null,
+    "sandboxType": null,
+    "scmIpSecurityRestrictions": [
+      {
+        "action": "Allow",
+        "description": "Allow all access",
+        "headers": null,
+        "ipAddress": "Any",
+        "name": "Allow all",
+        "priority": 2147483647,
+        "subnetMask": null,
+        "subnetTrafficTag": null,
+        "tag": null,
+        "vnetSubnetResourceId": null,
+        "vnetTrafficTag": null
+      }
+    ],
+    "scmIpSecurityRestrictionsDefaultAction": null,
+    "scmIpSecurityRestrictionsUseMain": null,
+    "scmMinTlsCipherSuite": null,
+    "scmMinTlsVersion": null,
+    "scmSupportedTlsCipherSuites": null,
+    "scmType": null,
+    "sitePort": null,
+    "sitePrivateLinkHostEnabled": null,
+    "storageType": null,
+    "supportedTlsCipherSuites": null,
+    "tracingOptions": null,
+    "use32BitWorkerProcess": null,
+    "virtualApplications": null,
+    "vnetName": null,
+    "vnetPrivatePortsCount": null,
+    "vnetRouteAllEnabled": null,
+    "webJobsEnabled": false,
+    "webSocketsEnabled": null,
+    "websiteTimeZone": null,
+    "winAuthAdminState": null,
+    "winAuthTenantState": null,
+    "windowsConfiguredStacks": null,
+    "windowsFxVersion": null,
+    "xManagedServiceIdentityId": null
+  },
+  "sku": "Basic",
+  "slotSwapStatus": null,
+  "sshEnabled": null,
+  "state": "Running",
+  "storageAccountRequired": false,
+  "suspendedTill": null,
+  "tags": null,
+  "targetSwapSlot": null,
+  "trafficManagerHostNames": null,
+  "type": "Microsoft.Web/sites",
+  "usageState": "Normal",
+  "virtualNetworkSubnetId": null,
+  "workloadProfileName": null
+}
+ az webapp deployment list-publishing-profiles \
+--name exam-web-app3 \
+--resource-group RG-SolutionA \
+--query "[?publishMethod=='FTP'].[publishUrl,userName,userPWD]" \
+--output tsv
+ftps://waws-prod-db3-165.ftp.azurewebsites.windows.net/site/wwwroot     exam-web-app3\$exam-web-app3    ZTpKtbpdkGCBR6Ky0nnpB9sBCigp3fTkhbaXphDRN2qbm3EsguPQjFXhZvv4
+ftps://waws-prod-db3-165dr.ftp.azurewebsites.windows.net/site/wwwroot   exam-web-app3\$exam-web-app3    ZTpKtbpdkGCBR6Ky0nnpB9sBCigp3fTkhbaXphDRN2qbm3EsguPQjFXhZvv4
+ az webapp show \
+--name exam-web-app3 \
+--resource-group RG-SolutionA \
+--query defaultHostName \
+-o tsv
+exam-web-app3.azurewebsites.net
